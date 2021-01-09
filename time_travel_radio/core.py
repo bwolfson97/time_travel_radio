@@ -32,12 +32,12 @@ class MusicPlayer:
     }
 
     def __init__(self, device_name: str):
-        self.sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
+        self.sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=MusicPlayer.scope))
         self.device = get_device_id(self.sp.devices(), device_name)
 
     def play_music(self, decade: str):
         """Plays `decade` on device."""
-        self.sp.start_playback(device_id=self.device, context_uri=self.playlists[decade])
+        self.sp.start_playback(device_id=self.device, context_uri=MusicPlayer.playlists[decade])
 
 # Cell
 @call_parse
@@ -48,5 +48,5 @@ def play(
     player = MusicPlayer(device_name)
 
     while True:
-        decade = input("What decade do you want to listen to? :)")
+        decade = input("What decade do you want to listen to? ")
         player.play_music(decade)

@@ -3,7 +3,7 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"get_device_id": "00_core.ipynb",
-         "MusicPlayer": "00_core.ipynb",
+         "DecadesPlayer": "00_core.ipynb",
          "play": "00_core.ipynb"}
 
 modules = ["core.py"]

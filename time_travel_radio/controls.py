@@ -6,6 +6,8 @@ __all__ = ['ADCDevice', 'ADS7830', 'setup', 'loop', 'destroy', 'adc']
 import time
 import smbus
 from IPython.display import clear_output
+from .core import *
+import numpy as np
 
 # Cell
 class ADCDevice(object):

@@ -34,13 +34,13 @@ class DecadesPlayer:
     }
 
     def __init__(self, device_name: str):
-        self.sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=MusicPlayer.scope))
+        self.sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=DecadesPlayer.scope))
         self.device = get_device_id(self.sp.devices(), device_name)
 
     def play_music(self, decade: str):
         """Plays `decade` on device."""
         if decade not in self.playlists: raise KeyError(f"Invalid decade: {decade}")
-        self.sp.start_playback(device_id=self.device, context_uri=MusicPlayer.playlists[decade])
+        self.sp.start_playback(device_id=self.device, context_uri=DecadesPlayer.playlists[decade])
 
     def change_volume(self, volume: int): self.sp.volume(volume, device_id=self.device)
 
@@ -49,7 +49,7 @@ class DecadesPlayer:
 def play(
     device_name: Param("Name of device", type=str)="Brandon's Raspberry Pi"
 ):
-    """Creates a `MusicPlayer` and forever loops controls :)."""
+    """Creates a `DecadesPlayer` and forever loops controls :)."""
     player = DecadesPlayer(device_name)
 
     while True:

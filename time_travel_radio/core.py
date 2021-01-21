@@ -39,7 +39,7 @@ class DecadesPlayer:
 
     def play_music(self, decade: str):
         """Plays `decade` on device."""
-        if decade not in playlists: raise KeyError(f"Invalid decade: {decade}")
+        if decade not in self.playlists: raise KeyError(f"Invalid decade: {decade}")
         self.sp.start_playback(device_id=self.device, context_uri=MusicPlayer.playlists[decade])
 
     def change_volume(self, volume: int): self.sp.volume(volume, device_id=self.device)

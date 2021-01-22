@@ -7,10 +7,7 @@ index = {"get_device_id": "00_core.ipynb",
          "play": "00_core.ipynb",
          "ADCDevice": "01_controls.ipynb",
          "ADS7830": "01_controls.ipynb",
-         "setup": "01_controls.ipynb",
-         "loop": "01_controls.ipynb",
-         "destroy": "01_controls.ipynb",
-         "adc": "01_controls.ipynb"}
+         "DecadesDial": "01_controls.ipynb"}
 
 modules = ["core.py",
            "controls.py"]

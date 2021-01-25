@@ -42,9 +42,9 @@ class ADS7830(ADCDevice):
 # Cell
 class DecadesDial(ADS7830):
     """Potentiometer linked to ADS7830 ADC converts read value into decade."""
-    def __init__(self, decades: List[str]):
+    def __init__(self, decades: Dict[str, str]):
         super().__init__()
-        self.decades = decades
+        self.decades = [decade for decade in decades]
         self.bins = self._build_bins(len(decades))
 
     def read_decade(self):
@@ -54,6 +54,7 @@ class DecadesDial(ADS7830):
         return self.decades[bin_idx]
 
     def _build_bins(self, num_bins: int):
+        """Builds bin of potentiometer values corresponding to each decade."""
         bin_size = self.value_range() / num_bins
         bins = [bin_size * i for i in range(1, num_bins)]
         return bins
@@ -65,9 +66,9 @@ class PowerButton(Button):
     Shuts down the Pi after being held down for 5
     seconds.
     """
-    def __init__(self, pin):
-        """Creates power button from button connected to pin."""
-        super().__init__(pin, hold_time=5)
+    def __init__(self, gpio_pin: int):
+        """Creates power button from button connected to gpio_pin."""
+        super().__init__(gpio_pin, hold_time=5)  # must hold for 5 seconds
 
     @staticmethod
     def when_held():

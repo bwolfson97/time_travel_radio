@@ -2,16 +2,19 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"get_device_id": "00_core.ipynb",
-         "DecadesPlayer": "00_core.ipynb",
-         "play": "00_core.ipynb",
+index = {"get_device_id": "00_client.ipynb",
+         "DecadesClient": "00_client.ipynb",
+         "play": "00_client.ipynb",
          "ADCDevice": "01_controls.ipynb",
          "ADS7830": "01_controls.ipynb",
          "DecadesDial": "01_controls.ipynb",
-         "PowerButton": "01_controls.ipynb"}
+         "PowerButton": "01_controls.ipynb",
+         "Controller": "01_controls.ipynb",
+         "run_radio": "02_player.ipynb"}
 
-modules = ["core.py",
-           "controls.py"]
+modules = ["client.py",
+           "controls.py",
+           "player.py"]
 
 doc_url = "https://bwolfson97.github.io/time_travel_radio/"
 
